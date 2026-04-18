@@ -709,6 +709,42 @@
 
   <script src="script.js"></script>
 
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init('c2Xmv8p2SKCrFZ5aI');
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const note = this.querySelector('.form-note');
+      const form = this;
+      btn.textContent = 'Enviant...';
+      btn.disabled = true;
+
+      const params = {
+        name:    document.getElementById('nombre').value,
+        email:   document.getElementById('email').value,
+        title:   document.getElementById('tipo').value,
+        time:    document.getElementById('fecha').value,
+        message: document.getElementById('mensaje').value
+      };
+
+      emailjs.send('service_kvy1ouo', 'template_4srw1le', params)
+        .then(function() {
+          btn.textContent = '✓ Sol·licitud enviada!';
+          btn.style.background = '#4caf6e';
+          note.textContent = 'Gràcies! Et respondrem en menys de 24 hores.';
+          form.reset();
+        }, function(err) {
+          console.error('EmailJS error:', JSON.stringify(err));
+          btn.textContent = 'Error, torna-ho a intentar';
+          btn.style.background = '#e05c5c';
+          btn.disabled = false;
+        });
+    });
+  </script>
+
   <!-- Firebase: carga textos, precios e imágenes en tiempo real -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";

@@ -482,22 +482,7 @@ document.querySelectorAll('.btn-add').forEach(btn => {
 /* ============================================================
    CONTACT FORM
    ============================================================ */
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
-  const orig = btn.textContent;
-  btn.textContent = '✓ Enviat!';
-  btn.style.background   = '#4a7c59';
-  btn.style.borderColor  = '#4a7c59';
-  btn.disabled = true;
-  this.reset();
-  setTimeout(() => {
-    btn.textContent = orig;
-    btn.style.background  = '';
-    btn.style.borderColor = '';
-    btn.disabled = false;
-  }, 3000);
-});
+// Formulario gestionado por EmailJS en index.html
 
 /* ============================================================
    INIT
