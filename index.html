@@ -48,8 +48,8 @@
       </div>
     </div>
     <div class="hero__visual">
-      <div class="hero__img hero__img--1"></div>
-      <div class="hero__img hero__img--2"></div>
+      <div class="hero__img hero__img--1" id="img_hero1"></div>
+      <div class="hero__img hero__img--2" id="img_hero2"></div>
       <div class="hero__badge">
         <span class="hero__badge-num">+200</span>
         <span class="hero__badge-text" data-i18n="hero.badge">Esdeveniments<br/>realitzats</span>
@@ -146,7 +146,7 @@
 
       <div class="equip-card">
         <div class="equip-card__img-wrap">
-          <div class="equip-card__img" style="background-image:url('https://i.pravatar.cc/400?img=47')"></div>
+          <div class="equip-card__img" id="img_equipo_jessica" style="background-image:url('https://i.pravatar.cc/400?img=47')"></div>
         </div>
         <div class="equip-card__body">
           <span class="equip-card__badge" data-i18n="team.jessica.badge">Chef Principal</span>
@@ -167,7 +167,7 @@
 
       <div class="equip-card">
         <div class="equip-card__img-wrap">
-          <div class="equip-card__img" style="background-image:url('https://i.pravatar.cc/400?img=25')"></div>
+          <div class="equip-card__img" id="img_equipo_ines" style="background-image:url('https://i.pravatar.cc/400?img=25')"></div>
         </div>
         <div class="equip-card__body">
           <span class="equip-card__badge" data-i18n="team.ines.badge">Directora de Decoració</span>
@@ -301,27 +301,27 @@
     </div>
     <div class="portfolio__grid" id="portfolioGrid">
       <div class="porto-item" data-cat="boda">
-        <div class="porto-item__img porto-item__img--1"></div>
+        <div class="porto-item__img porto-item__img--1" id="img_porto1"></div>
         <div class="porto-item__overlay"><span class="porto-item__cat">Noces</span><h4>Boda Jardí — Mas Can Puig</h4><p>250 convidats · Menú equatorià · Decoració botànica</p></div>
       </div>
       <div class="porto-item porto-item--tall" data-cat="empresa">
-        <div class="porto-item__img porto-item__img--2"></div>
+        <div class="porto-item__img porto-item__img--2" id="img_porto2"></div>
         <div class="porto-item__overlay"><span class="porto-item__cat">Empresa</span><h4>Gala Anual Grupo Meridian</h4><p>400 assistents · Ceviches & caldos · Sopar de gala</p></div>
       </div>
       <div class="porto-item" data-cat="privat">
-        <div class="porto-item__img porto-item__img--3"></div>
+        <div class="porto-item__img porto-item__img--3" id="img_porto3"></div>
         <div class="porto-item__overlay"><span class="porto-item__cat">Privat</span><h4>Aniversari íntim — Villa Roses</h4><p>40 convidats · Menú omakase · Decoració minimalista</p></div>
       </div>
       <div class="porto-item" data-cat="empresa">
-        <div class="porto-item__img porto-item__img--4"></div>
+        <div class="porto-item__img porto-item__img--4" id="img_porto4"></div>
         <div class="porto-item__overlay"><span class="porto-item__cat">Empresa</span><h4>Presentació de Producte Luxe</h4><p>120 convidats · Finger food equatorià · Ambientació editorial</p></div>
       </div>
       <div class="porto-item porto-item--wide" data-cat="boda">
-        <div class="porto-item__img porto-item__img--5"></div>
+        <div class="porto-item__img porto-item__img--5" id="img_porto5"></div>
         <div class="porto-item__overlay"><span class="porto-item__cat">Noces</span><h4>Casament Palau de Maricel</h4><p>180 convidats · Banquet · Flors i teles naturals</p></div>
       </div>
       <div class="porto-item" data-cat="privat">
-        <div class="porto-item__img porto-item__img--6"></div>
+        <div class="porto-item__img porto-item__img--6" id="img_porto6"></div>
         <div class="porto-item__overlay"><span class="porto-item__cat">Privat</span><h4>Celebració Familiar — Finca La Serra</h4><p>80 convidats · Brunch · Decoració rústica-elegant</p></div>
       </div>
     </div>
@@ -708,5 +708,41 @@
   </button>
 
   <script src="script.js"></script>
+
+  <!-- Firebase: carga imágenes en tiempo real -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyArhr2hQK0HRbl1eoXPD-tI7u42KTlnavE",
+      authDomain: "elite-eventos-eb5b9.firebaseapp.com",
+      projectId: "elite-eventos-eb5b9",
+      storageBucket: "elite-eventos-eb5b9.firebasestorage.app",
+      messagingSenderId: "947597130460",
+      appId: "1:947597130460:web:2fba42bc261c30c5bc9219"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Escucha cambios en tiempo real y actualiza las fotos automáticamente
+    onSnapshot(doc(db, 'siteContent', 'images'), (snap) => {
+      if (!snap.exists()) return;
+      const data = snap.data();
+
+      const keys = [
+        'porto1','porto2','porto3','porto4','porto5','porto6',
+        'hero1','hero2','equipo_jessica','equipo_ines'
+      ];
+
+      keys.forEach(key => {
+        if (data[key]) {
+          const el = document.getElementById('img_' + key);
+          if (el) el.style.backgroundImage = `url('${data[key]}')`;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

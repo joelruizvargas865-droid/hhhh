@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — Élite Eventos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --dark: #0d0d0d;
+      --dark2: #161616;
+      --dark3: #1f1f1f;
+      --dark4: #2a2a2a;
+      --text: #e8e0d0;
+      --text-muted: #8a7f70;
+      --success: #4caf6e;
+      --error: #e05c5c;
+      --border: rgba(201,168,76,0.2);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── LOGIN ── */
+    #loginScreen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%), var(--dark);
+    }
+
+    .login-box {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .login-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .login-box input {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .login-box input:focus { border-color: var(--gold); }
+
+    .btn-gold {
+      width: 100%;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-gold:active { transform: scale(0.98); }
+
+    #loginError {
+      color: var(--error);
+      font-size: 0.82rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    /* ── PANEL ── */
+    #adminPanel { display: none; }
+
+    header {
+      background: var(--dark2);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .header-right span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .btn-logout {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 2px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-logout:hover { border-color: var(--error); color: var(--error); }
+
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .page-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── PORTFOLIO GRID ── */
+    .porto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 700px) { .porto-grid { grid-template-columns: 1fr 1fr; } }
+
+    .porto-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .porto-card__preview {
+      width: 100%;
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--dark4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .porto-card__preview::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .porto-card:hover .porto-card__preview::after { opacity: 1; }
+
+    .porto-card__num {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      z-index: 1;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .porto-card__placeholder {
+      font-size: 2rem;
+      opacity: 0.2;
+    }
+
+    .porto-card__footer {
+      padding: 0.75rem;
+    }
+
+    .porto-card__label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .upload-btn {
+      display: block;
+      width: 100%;
+      background: var(--dark4);
+      border: 1px dashed var(--border);
+      color: var(--text-muted);
+      border-radius: 2px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.55rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .upload-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    .upload-btn.uploading {
+      color: var(--gold);
+      border-style: solid;
+      border-color: var(--gold);
+      pointer-events: none;
+    }
+
+    .upload-btn.done {
+      color: var(--success);
+      border-color: var(--success);
+      border-style: solid;
+    }
+
+    input[type="file"] { display: none; }
+
+    /* ── HERO SECTION ── */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) { .hero-grid { grid-template-columns: 1fr; } }
+
+    .hero-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .hero-card__preview {
+      width: 100%;
+      height: 140px;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--dark4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card__footer {
+      padding: 0.75rem;
+    }
+
+    .hero-card__label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── EQUIPO ── */
+    .equipo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--dark3);
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      transform: translateY(6rem);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 999;
+      max-width: 320px;
+    }
+
+    #toast.show { transform: translateY(0); opacity: 1; }
+    #toast.error { border-color: var(--error); }
+
+    .toast-icon { font-size: 1.1rem; }
+
+    /* ── SPINNER ── */
+    .spinner {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(201,168,76,0.3);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-right: 5px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── STATUS BAR ── */
+    .status-bar {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ LOGIN ══ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">ÉLITE EVENTOS</div>
+    <div class="login-sub">Panel de Administración</div>
+    <input type="email" id="emailInput" placeholder="Correo electrónico" />
+    <input type="password" id="passInput" placeholder="Contraseña" />
+    <button class="btn-gold" onclick="doLogin()">Acceder</button>
+    <div id="loginError">Correo o contraseña incorrectos</div>
+  </div>
+</div>
+
+<!-- ══ PANEL ══ -->
+<div id="adminPanel">
+  <header>
+    <div class="header-logo">ÉLITE EVENTOS — Admin</div>
+    <div class="header-right">
+      <span id="userEmail"></span>
+      <button class="btn-logout" onclick="doLogout()">Salir</button>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="page-title">Panel de imágenes</div>
+    <div class="page-sub">Sube nuevas fotos — la web se actualiza automáticamente</div>
+
+    <div class="status-bar">
+      <div class="status-dot"></div>
+      Conectado a Firebase · Cloudinary listo
+    </div>
+
+    <!-- PORTFOLIO -->
+    <div class="section">
+      <div class="section-title">Portfolio de eventos</div>
+      <div class="section-desc">Las 6 fotos principales que aparecen en la sección Portfolio de la web</div>
+      <div class="porto-grid" id="portoGrid"></div>
+    </div>
+
+    <!-- HERO -->
+    <div class="section">
+      <div class="section-title">Imágenes Hero</div>
+      <div class="section-desc">Las 2 fotos decorativas del encabezado principal</div>
+      <div class="hero-grid" id="heroGrid"></div>
+    </div>
+
+    <!-- EQUIPO -->
+    <div class="section">
+      <div class="section-title">Fotos del equipo</div>
+      <div class="section-desc">Foto de la Chef Jessica e Inés</div>
+      <div class="equipo-grid" id="equipoGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast">
+  <span class="toast-icon" id="toastIcon">✓</span>
+  <span id="toastMsg">Imagen actualizada</span>
+</div>
+
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, doc, getDoc, setDoc, onSnapshot }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyArhr2hQK0HRbl1eoXPD-tI7u42KTlnavE",
+    authDomain: "elite-eventos-eb5b9.firebaseapp.com",
+    projectId: "elite-eventos-eb5b9",
+    storageBucket: "elite-eventos-eb5b9.firebasestorage.app",
+    messagingSenderId: "947597130460",
+    appId: "1:947597130460:web:2fba42bc261c30c5bc9219"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const CLOUD_NAME = "da9dqlnkk";
+  const UPLOAD_PRESET = "Elite eventos";
+
+  // Defaults
+  const DEFAULTS = {
+    porto1: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=80",
+    porto2: "https://images.unsplash.com/photo-1561047029-3000c68339ca?w=700&q=80",
+    porto3: "https://images.unsplash.com/photo-1470290378698-263fa7ca60a0?w=700&q=80",
+    porto4: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700&q=80",
+    porto5: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&q=80",
+    porto6: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=700&q=80",
+    hero1: "",
+    hero2: "",
+    equipo_jessica: "https://i.pravatar.cc/400?img=47",
+    equipo_ines: "https://i.pravatar.cc/400?img=25"
+  };
+
+  const LABELS = {
+    porto1: "Foto portfolio 1", porto2: "Foto portfolio 2",
+    porto3: "Foto portfolio 3", porto4: "Foto portfolio 4",
+    porto5: "Foto portfolio 5", porto6: "Foto portfolio 6",
+    hero1: "Hero imagen 1", hero2: "Hero imagen 2",
+    equipo_jessica: "Chef Jessica", equipo_ines: "Inés — Decoración"
+  };
+
+  let currentImages = { ...DEFAULTS };
+
+  // ── AUTH ──
+  window.doLogin = async () => {
+    const email = document.getElementById('emailInput').value;
+    const pass = document.getElementById('passInput').value;
+    const errEl = document.getElementById('loginError');
+    errEl.style.display = 'none';
+    try {
+      await signInWithEmailAndPassword(auth, email, pass);
+    } catch {
+      errEl.style.display = 'block';
+    }
+  };
+
+  window.doLogout = () => signOut(auth);
+
+  // Enter key en login
+  document.getElementById('passInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') window.doLogin();
+  });
+
+  onAuthStateChanged(auth, async user => {
+    if (user) {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('adminPanel').style.display = 'block';
+      document.getElementById('userEmail').textContent = user.email;
+      await loadImages();
+      listenImages();
+    } else {
+      document.getElementById('loginScreen').style.display = 'flex';
+      document.getElementById('adminPanel').style.display = 'none';
+    }
+  });
+
+  // ── FIRESTORE ──
+  async function loadImages() {
+    const snap = await getDoc(doc(db, 'siteContent', 'images'));
+    if (snap.exists()) {
+      currentImages = { ...DEFAULTS, ...snap.data() };
+    }
+    buildUI();
+  }
+
+  function listenImages() {
+    onSnapshot(doc(db, 'siteContent', 'images'), snap => {
+      if (snap.exists()) {
+        currentImages = { ...DEFAULTS, ...snap.data() };
+        updatePreviews();
+      }
+    });
+  }
+
+  async function saveImage(key, url) {
+    await setDoc(doc(db, 'siteContent', 'images'), { [key]: url }, { merge: true });
+  }
+
+  // ── UI ──
+  function buildUI() {
+    buildSection('portoGrid', ['porto1','porto2','porto3','porto4','porto5','porto6'], 'porto');
+    buildSection('heroGrid', ['hero1','hero2'], 'hero');
+    buildSection('equipoGrid', ['equipo_jessica','equipo_ines'], 'equipo');
+  }
+
+  function buildSection(gridId, keys, type) {
+    const grid = document.getElementById(gridId);
+    grid.innerHTML = '';
+    keys.forEach((key, i) => {
+      const url = currentImages[key] || '';
+      const card = document.createElement('div');
+      card.className = type === 'porto' ? 'porto-card' : 'hero-card';
+      card.innerHTML = `
+        <div class="${type === 'porto' ? 'porto-card__preview' : 'hero-card__preview'}" id="prev_${key}"
+          style="${url ? `background-image:url('${url}')` : ''}">
+          ${!url ? '<span class="porto-card__placeholder">🖼</span>' : ''}
+          ${type === 'porto' ? `<span class="porto-card__num">0${i+1}</span>` : ''}
+        </div>
+        <div class="${type === 'porto' ? 'porto-card__footer' : 'hero-card__footer'}">
+          <div class="${type === 'porto' ? 'porto-card__label' : 'hero-card__label'}">${LABELS[key]}</div>
+          <label class="upload-btn" id="btn_${key}" for="file_${key}">
+            ${url ? '↑ Cambiar foto' : '↑ Subir foto'}
+          </label>
+          <input type="file" id="file_${key}" accept="image/*" onchange="uploadImage('${key}', this)"/>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function updatePreviews() {
+    Object.keys(currentImages).forEach(key => {
+      const prev = document.getElementById(`prev_${key}`);
+      if (prev && currentImages[key]) {
+        prev.style.backgroundImage = `url('${currentImages[key]}')`;
+        prev.innerHTML = '';
+      }
+    });
+  }
+
+  // ── CLOUDINARY UPLOAD ──
+  window.uploadImage = async (key, input) => {
+    const file = input.files[0];
+    if (!file) return;
+    const btn = document.getElementById(`btn_${key}`);
+    btn.className = 'upload-btn uploading';
+    btn.innerHTML = '<span class="spinner"></span> Subiendo...';
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', UPLOAD_PRESET);
+
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      if (!data.secure_url) throw new Error('Sin URL');
+
+      await saveImage(key, data.secure_url);
+
+      btn.className = 'upload-btn done';
+      btn.innerHTML = '✓ Actualizada';
+      setTimeout(() => {
+        btn.className = 'upload-btn';
+        btn.innerHTML = '↑ Cambiar foto';
+      }, 3000);
+
+      showToast('✓', `Foto actualizada correctamente`, false);
+    } catch (err) {
+      btn.className = 'upload-btn';
+      btn.innerHTML = '↑ Subir foto';
+      showToast('✕', `Error al subir: ${err.message}`, true);
+    }
+    input.value = '';
+  };
+
+  // ── TOAST ──
+  function showToast(icon, msg, isError) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastIcon').textContent = icon;
+    document.getElementById('toastMsg').textContent = msg;
+    t.className = isError ? 'error show' : 'show';
+    setTimeout(() => t.className = isError ? 'error' : '', 3500);
+  }
+</script>
+</body>
+</html>
