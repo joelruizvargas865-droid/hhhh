@@ -265,26 +265,7 @@ document.getElementById('backToTop').addEventListener('click', () => {
   window.scrollTo({ top:0, behavior:'smooth' });
 });
 
-/* ============================================================
-   FADE-UP — IntersectionObserver
-   ============================================================ */
-const fadeEls = document.querySelectorAll(
-  '.section-header, .servicio-card, .extra-card, .step, ' +
-  '.porto-item, .testi-card, .contacto__info, .contacto__form, ' +
-  '.stats__item, .equip-card, .plat-card, .pack-card, .tienda-card'
-);
-fadeEls.forEach(el => el.classList.add('fade-up'));
-
-const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 60);
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-fadeEls.forEach(el => fadeObserver.observe(el));
+/* FADE-UP eliminado — animaciones gestionadas por GSAP */
 
 /* ============================================================
    COUNTER ANIMATION
