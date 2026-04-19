@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Élite Eventos — Jessica Vargas Tenorio · Gastronomia Equatoriana & Decoració</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav__logo">ÉLITE EVENTOS</a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#servicios" data-i18n="nav.services">Serveis</a></li>
+      <li><a href="#equip"     data-i18n="nav.team">Equip</a></li>
+      <li><a href="#carta"     data-i18n="nav.menu">Carta</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#packs"     data-i18n="nav.packs">Packs</a></li>
+      <li><a href="#tienda"    data-i18n="nav.shop">Botiga</a></li>
+      <li><a href="#contacto" class="nav__cta" data-i18n="nav.contact">Contactar</a></li>
+    </ul>
+    <div class="nav__right">
+      <button class="lang-toggle" id="langToggle" aria-label="Canviar idioma">ES</button>
+      <button class="cart-icon-btn" id="cartToggle" aria-label="Carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+      </button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <p class="hero__tag" data-i18n="hero.tag">Gastronomia Equatoriana · Decoració · Barcelona</p>
+      <h1 class="hero__title">Cada detall,<br /><em data-i18n="hero.em">una obra d'art.</em></h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">Sabors autèntics de l'Equador i decoració impecable per a esdeveniments inoblidables a Barcelona.</p>
+      <div class="hero__actions">
+        <a href="#carta"    class="btn btn--primary" data-i18n="hero.cta1">Veure Carta</a>
+        <a href="#contacto" class="btn btn--ghost"   data-i18n="hero.cta2">Sol·licitar Pressupost</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__img hero__img--1" id="img_hero1"></div>
+      <div class="hero__img hero__img--2" id="img_hero2"></div>
+      <div class="hero__badge">
+        <span class="hero__badge-num">+200</span>
+        <span class="hero__badge-text" data-i18n="hero.badge">Esdeveniments<br/>realitzats</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__grid">
+      <div class="stats__item">
+        <span class="stats__num" data-target="200">0</span><span class="stats__num">+</span>
+        <p data-i18n="stats.events">Esdeveniments</p>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num" data-target="98">0</span><span class="stats__num">%</span>
+        <p data-i18n="stats.clients">Clients satisfets</p>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num" data-target="8">0</span><span class="stats__num"> anys</span>
+        <p data-i18n="stats.exp">D'experiència</p>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num" data-target="10">0</span><span class="stats__num">+</span>
+        <p data-i18n="stats.dishes">Plats tradicionals</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="srv.tag">El que oferim</span>
+      <h2 class="section-title" data-i18n="srv.title">Serveis integrals<br />per al teu esdeveniment</h2>
+    </div>
+    <div class="servicios__grid">
+      <div class="servicio-card servicio-card--large">
+        <div class="servicio-card__img servicio-card__img--food"></div>
+        <div class="servicio-card__body">
+          <span class="servicio-card__cat">01 — <span data-i18n="srv.food.cat">Gastronomia</span></span>
+          <h3 data-i18n="srv.food.title">Cuina equatoriana autèntica</h3>
+          <p data-i18n="srv.food.desc">Receptes tradicionals de l'Equador preparades amb amor per la Chef Jessica Vargas Tenorio. Des de caldos fins a encocados, cada plat porta l'ànima de la cuina casolana equatoriana.</p>
+          <ul class="servicio-card__list">
+            <li data-i18n="srv.food.li1">Caldos i sopes tradicionals</li>
+            <li data-i18n="srv.food.li2">Ceviches i marisc fresc</li>
+            <li data-i18n="srv.food.li3">Encocados i plats de peix</li>
+            <li data-i18n="srv.food.li4">Bollos i tapados</li>
+          </ul>
+          <a href="#carta" class="btn btn--outline" data-i18n="srv.food.btn">Veure Carta</a>
+        </div>
+      </div>
+      <div class="servicio-card servicio-card--large servicio-card--reverse">
+        <div class="servicio-card__img servicio-card__img--deco"></div>
+        <div class="servicio-card__body">
+          <span class="servicio-card__cat">02 — <span data-i18n="srv.deco.cat">Decoració</span></span>
+          <h3 data-i18n="srv.deco.title">Espais que conten la teva història</h3>
+          <p data-i18n="srv.deco.desc">La directora de decoració Inés dissenya cada espai amb cura extrema: flors fresques, teles nobles, il·luminació ambiental i atrezzo exclusiu.</p>
+          <ul class="servicio-card__list">
+            <li data-i18n="srv.deco.li1">Disseny floral & botanical</li>
+            <li data-i18n="srv.deco.li2">Il·luminació escènica</li>
+            <li data-i18n="srv.deco.li3">Arcs, dosers i estructures</li>
+            <li data-i18n="srv.deco.li4">Taules i centres personalitzats</li>
+          </ul>
+          <a href="#contacto" class="btn btn--outline" data-i18n="srv.deco.btn">Saber més</a>
+        </div>
+      </div>
+    </div>
+    <div class="servicios__extras">
+      <div class="extra-card">
+        <div class="extra-card__icon">&#9670;</div>
+        <h4 data-i18n="srv.ex1.t">Coordinació integral</h4>
+        <p data-i18n="srv.ex1.d">Un coordinador dedicat des del primer contacte fins al final de l'event.</p>
+      </div>
+      <div class="extra-card">
+        <div class="extra-card__icon">&#9670;</div>
+        <h4 data-i18n="srv.ex2.t">Proveïdors de confiança</h4>
+        <p data-i18n="srv.ex2.d">Xarxa de fotògrafs, músics i audiovisuals seleccionats.</p>
+      </div>
+      <div class="extra-card">
+        <div class="extra-card__icon">&#9670;</div>
+        <h4 data-i18n="srv.ex3.t">Logística i muntatge</h4>
+        <p data-i18n="srv.ex3.d">Ens encarreguem de tot: transport, muntatge i desmuntatge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIP -->
+  <section class="equip" id="equip">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="team.tag">El nostre equip</span>
+      <h2 class="section-title" data-i18n="team.title">Les persones darrere<br />de cada event perfecte</h2>
+    </div>
+    <div class="equip__grid">
+
+      <div class="equip-card">
+        <div class="equip-card__img-wrap">
+          <div class="equip-card__img" style="background-image:url('https://i.pravatar.cc/400?img=47')" id="img_equipo_jessica"></div>
+        </div>
+        <div class="equip-card__body">
+          <span class="equip-card__badge" data-i18n="team.jessica.badge">Chef Principal</span>
+          <h3 class="equip-card__name">Jessica Vargas Tenorio</h3>
+          <p class="equip-card__desc" data-i18n="team.jessica.desc">Nascuda a l'Equador, la Jessica porta més de 8 anys cuinant i emocionant comensals a Barcelona amb les receptes tradicionals de la seva terra.</p>
+          <div class="equip-card__socials">
+            <a href="https://instagram.com/jessicavargastenorio" target="_blank" rel="noopener" class="equip-card__social">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @jessicavargastenorio
+            </a>
+            <a href="https://instagram.com/reposteriaconjessica" target="_blank" rel="noopener" class="equip-card__social">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @reposteriaconjessica
+            </a>
+            <a href="https://tiktok.com/@bailandoconjessica" target="_blank" rel="noopener" class="equip-card__social">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+              @bailandoconjessica
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <div class="equip-card__img-wrap">
+          <div class="equip-card__img" style="background-image:url('https://i.pravatar.cc/400?img=25')" id="img_equipo_ines"></div>
+        </div>
+        <div class="equip-card__body">
+          <span class="equip-card__badge" data-i18n="team.ines.badge">Directora de Decoració</span>
+          <h3 class="equip-card__name">Inés</h3>
+          <p class="equip-card__desc" data-i18n="team.ines.desc">Amb un ull innat per la bellesa i el detall, l'Inés transforma qualsevol espai en un escenari de somni. Especialitzada en estil botànic, mediterrani i minimalista de luxe.</p>
+          <div class="equip-card__tags">
+            <span data-i18n="team.ines.t1">Disseny floral</span>
+            <span data-i18n="team.ines.t2">Il·luminació</span>
+            <span data-i18n="team.ines.t3">Coordinació</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section class="carta" id="carta">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="menu.tag">La nostra carta</span>
+      <h2 class="section-title" data-i18n="menu.title">Sabors autèntics<br />de l'Equador</h2>
+    </div>
+    <div class="carta__grid">
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat1" style="background-image:url('https://source.unsplash.com/600x400/?ecuadorian,soup')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.soup">Sopa</span>
+          <h4 class="plat-card__name" id="txt_plat1_nom">Caldo de Bola</h4>
+          <p class="plat-card__desc" data-i18n="menu.caldoBola">Bola de verd farcida de carn i arròs en brou intens. El clàssic equatorià per excel·lència.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat2" style="background-image:url('https://source.unsplash.com/600x400/?beef,stew,soup')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.soup">Sopa</span>
+          <h4 class="plat-card__name" id="txt_plat2_nom">Caldo de Pata</h4>
+          <p class="plat-card__desc" data-i18n="menu.caldoPata">Brou de peu de vedella amb mote i cacauet. Potent, nutritiu i ple de sabor.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat3" style="background-image:url('https://source.unsplash.com/600x400/?seafood,stew')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.stew">Guisat</span>
+          <h4 class="plat-card__name" id="txt_plat3_nom">Cazuela</h4>
+          <p class="plat-card__desc" data-i18n="menu.cazuela">Guisat de marisc i peix en salsa de maní amb plàtan. Cremós i aromàtic.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat4" style="background-image:url('https://source.unsplash.com/600x400/?corn,tamales')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.trad">Tradicional</span>
+          <h4 class="plat-card__name" id="txt_plat4_nom">Bollos</h4>
+          <p class="plat-card__desc" data-i18n="menu.bollos">Pastissos de blat de moro farcits de peix o porc, embolcallats en fulla de plàtan.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat5" style="background-image:url('https://source.unsplash.com/600x400/?ceviche,seafood')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.sea">Marisc</span>
+          <h4 class="plat-card__name" id="txt_plat5_nom">Ceviches</h4>
+          <p class="plat-card__desc" data-i18n="menu.ceviches">Marisc fresc macerat en llima, tomàquet i ceba. Refrescant i lleuger.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat6" style="background-image:url('https://source.unsplash.com/600x400/?sausage,soup')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.soup">Sopa</span>
+          <h4 class="plat-card__name" id="txt_plat6_nom">Caldo de Salchicha</h4>
+          <p class="plat-card__desc" data-i18n="menu.caldoSal">Brou saborós amb salsitxa equatoriana, patata i espècies. Contundent i casolà.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat7" style="background-image:url('https://source.unsplash.com/600x400/?fish,coconut,sauce')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.fish">Peix</span>
+          <h4 class="plat-card__name" id="txt_plat7_nom">Encocado de Pescado</h4>
+          <p class="plat-card__desc" data-i18n="menu.encocado">Peix fresc en cremosa salsa de llet de coco amb espècies tropicals. Exòtic i deliciós.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat8" style="background-image:url('https://source.unsplash.com/600x400/?seafood,soup')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.sea">Marisc</span>
+          <h4 class="plat-card__name" id="txt_plat8_nom">Sopa Marinera</h4>
+          <p class="plat-card__desc" data-i18n="menu.sopaM">Sopa rica amb gambes, musclos i calamar en brou especiat. Sabor de mar.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat9" style="background-image:url('https://source.unsplash.com/600x400/?tropical,stew')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.stew">Guisat</span>
+          <h4 class="plat-card__name" id="txt_plat9_nom">Tapado</h4>
+          <p class="plat-card__desc" data-i18n="menu.tapado">Guisat tropical de plàtan verd, marisc, yuca i coco. Dens i aromàtic.</p>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-card__img" id="img_plat10" style="background-image:url('https://source.unsplash.com/600x400/?fried,fish,plantain')"></div>
+        <div class="plat-card__body">
+          <span class="plat-card__cat" data-i18n="menu.cat.fish">Peix</span>
+          <h4 class="plat-card__name" id="txt_plat10_nom">Guatita</h4>
+          <p class="plat-card__desc" data-i18n="menu.guyita">Peix fregit cruixent amb patacones i salsa criolla. Textures que conquisten.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="carta__cta">
+      <a href="#contacto" class="btn btn--primary" data-i18n="menu.cta">Fer una comanda especial</a>
+    </div>
+  </section>
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="port.tag">El nostre treball</span>
+      <h2 class="section-title" data-i18n="port.title">Portfolio d'esdeveniments</h2>
+    </div>
+    <div class="portfolio__filter">
+      <button class="filter-btn filter-btn--active" data-filter="all"    data-i18n="port.all">Tots</button>
+      <button class="filter-btn" data-filter="boda"    data-i18n="port.wed">Noces</button>
+      <button class="filter-btn" data-filter="empresa" data-i18n="port.corp">Empresa</button>
+      <button class="filter-btn" data-filter="privat"  data-i18n="port.priv">Privat</button>
+    </div>
+    <div class="portfolio__grid" id="portfolioGrid">
+      <div class="porto-item" data-cat="boda">
+        <div class="porto-item__img porto-item__img--1" id="img_porto1"></div>
+        <div class="porto-item__overlay"><span class="porto-item__cat">Noces</span><h4>Boda Jardí — Mas Can Puig</h4><p>250 convidats · Menú equatorià · Decoració botànica</p></div>
+      </div>
+      <div class="porto-item porto-item--tall" data-cat="empresa">
+        <div class="porto-item__img porto-item__img--2" id="img_porto2"></div>
+        <div class="porto-item__overlay"><span class="porto-item__cat">Empresa</span><h4>Gala Anual Grupo Meridian</h4><p>400 assistents · Ceviches & caldos · Sopar de gala</p></div>
+      </div>
+      <div class="porto-item" data-cat="privat">
+        <div class="porto-item__img porto-item__img--3" id="img_porto3"></div>
+        <div class="porto-item__overlay"><span class="porto-item__cat">Privat</span><h4>Aniversari íntim — Villa Roses</h4><p>40 convidats · Menú omakase · Decoració minimalista</p></div>
+      </div>
+      <div class="porto-item" data-cat="empresa">
+        <div class="porto-item__img porto-item__img--4" id="img_porto4"></div>
+        <div class="porto-item__overlay"><span class="porto-item__cat">Empresa</span><h4>Presentació de Producte Luxe</h4><p>120 convidats · Finger food equatorià · Ambientació editorial</p></div>
+      </div>
+      <div class="porto-item porto-item--wide" data-cat="boda">
+        <div class="porto-item__img porto-item__img--5" id="img_porto5"></div>
+        <div class="porto-item__overlay"><span class="porto-item__cat">Noces</span><h4>Casament Palau de Maricel</h4><p>180 convidats · Banquet · Flors i teles naturals</p></div>
+      </div>
+      <div class="porto-item" data-cat="privat">
+        <div class="porto-item__img porto-item__img--6" id="img_porto6"></div>
+        <div class="porto-item__overlay"><span class="porto-item__cat">Privat</span><h4>Celebració Familiar — Finca La Serra</h4><p>80 convidats · Brunch · Decoració rústica-elegant</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKS -->
+  <section class="packs" id="packs">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="packs.tag">Packs Esdeveniment</span>
+      <h2 class="section-title" data-i18n="packs.title">Gastronomia + Decoració<br />en un sol paquet</h2>
+    </div>
+    <div class="packs__grid">
+
+      <div class="pack-card">
+        <div class="pack-card__header">
+          <span class="pack-card__label" data-i18n="packs.e.name">Essencial</span>
+          <div class="pack-card__price">
+            <span class="pack-card__from" data-i18n="packs.from">Des de</span>
+            <span class="pack-card__num" id="txt_pack_esencial_precio">45€</span>
+            <span class="pack-card__per" data-i18n="packs.per">/persona</span>
+          </div>
+          <p class="pack-card__desc" data-i18n="packs.e.desc">Per a celebracions íntimes fins a 30 persones.</p>
+        </div>
+        <ul class="pack-card__features">
+          <li><span class="pack-check">✓</span><span data-i18n="packs.e.f1">Menú de 3 plats equatorians</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.e.f2">Decoració bàsica floral</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.e.f3">Coordinació el dia de l'event</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.e.f4">Servei de taula</span></li>
+          <li class="pack-off"><span>✗</span><span data-i18n="packs.e.f5">Coordinadora Inés</span></li>
+          <li class="pack-off"><span>✗</span><span data-i18n="packs.e.f6">Fotògraf inclòs</span></li>
+        </ul>
+        <a href="#contacto" class="btn btn--outline btn--full pack-btn" data-pack="Essencial" data-i18n="packs.cta">Sol·licitar aquest pack</a>
+      </div>
+
+      <div class="pack-card pack-card--featured">
+        <div class="pack-badge" data-i18n="packs.popular">Més popular</div>
+        <div class="pack-card__header">
+          <span class="pack-card__label" data-i18n="packs.p.name">Premium</span>
+          <div class="pack-card__price">
+            <span class="pack-card__from" data-i18n="packs.from">Des de</span>
+            <span class="pack-card__num" id="txt_pack_premium_precio">75€</span>
+            <span class="pack-card__per" data-i18n="packs.per">/persona</span>
+          </div>
+          <p class="pack-card__desc" data-i18n="packs.p.desc">Per a noces i events corporatius de 30–150 persones.</p>
+        </div>
+        <ul class="pack-card__features">
+          <li><span class="pack-check">✓</span><span data-i18n="packs.p.f1">Menú degustació de 5 plats</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.p.f2">Decoració floral premium</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.p.f3">Coordinació integral</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.p.f4">Coordinadora Inés inclosa</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.p.f5">Il·luminació ambiental</span></li>
+          <li class="pack-off"><span>✗</span><span data-i18n="packs.p.f6">Fotògraf inclòs</span></li>
+        </ul>
+        <a href="#contacto" class="btn btn--primary btn--full pack-btn" data-pack="Premium" data-i18n="packs.cta">Sol·licitar aquest pack</a>
+      </div>
+
+      <div class="pack-card">
+        <div class="pack-card__header">
+          <span class="pack-card__label" data-i18n="packs.el.name">Élite</span>
+          <div class="pack-card__price">
+            <span class="pack-card__from" data-i18n="packs.from">Des de</span>
+            <span class="pack-card__num" id="txt_pack_elite_precio">120€</span>
+            <span class="pack-card__per" data-i18n="packs.per">/persona</span>
+          </div>
+          <p class="pack-card__desc" data-i18n="packs.el.desc">Experiència total per a grans gales i events de màxim prestigi.</p>
+        </div>
+        <ul class="pack-card__features">
+          <li><span class="pack-check">✓</span><span data-i18n="packs.el.f1">Menú omakase de 7 plats</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.el.f2">Decoració exclusiva dissenyada</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.el.f3">Coordinació total des del dia 1</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.el.f4">Coordinadora Inés + equip</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.el.f5">Equip audiovisual</span></li>
+          <li><span class="pack-check">✓</span><span data-i18n="packs.el.f6">Fotògraf professional inclòs</span></li>
+        </ul>
+        <a href="#contacto" class="btn btn--outline btn--full pack-btn" data-pack="Élite" data-i18n="packs.cta">Sol·licitar aquest pack</a>
+      </div>
+
+    </div>
+    <p class="packs__note" data-i18n="packs.note">Tots els packs inclouen la Chef Jessica Vargas Tenorio. Pressupost sense compromís.</p>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="proceso" id="proceso">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="proc.tag">Com treballem</span>
+      <h2 class="section-title" data-i18n="proc.title">El nostre procés,<br />pas a pas</h2>
+    </div>
+    <div class="proceso__steps">
+      <div class="step"><div class="step__num">01</div><div class="step__body"><h4 data-i18n="proc.s1.t">Primera consulta</h4><p data-i18n="proc.s1.d">Escoltem la teva visió, necessitats i pressupost sense cap compromís.</p></div></div>
+      <div class="step__connector"></div>
+      <div class="step"><div class="step__num">02</div><div class="step__body"><h4 data-i18n="proc.s2.t">Proposta personalitzada</h4><p data-i18n="proc.s2.d">Elaborem un projecte a mida amb moodboard, proposta gastronòmica i estimació detallada.</p></div></div>
+      <div class="step__connector"></div>
+      <div class="step"><div class="step__num">03</div><div class="step__body"><h4 data-i18n="proc.s3.t">Coordinació i execució</h4><p data-i18n="proc.s3.d">Gestionem tots els proveïdors, el muntatge i la logística.</p></div></div>
+      <div class="step__connector"></div>
+      <div class="step"><div class="step__num">04</div><div class="step__body"><h4 data-i18n="proc.s4.t">Dia perfecte</h4><p data-i18n="proc.s4.d">Supervisem cada moment en directe per garantir que tot flueixi perfectament.</p></div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonios">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="test.tag">Clients</span>
+      <h2 class="section-title" data-i18n="test.title">El que diuen de nosaltres</h2>
+    </div>
+    <div class="testimonios__grid">
+      <blockquote class="testi-card">
+        <p>"Van transformar la nostra boda en un somni. La cuina equatoriana de la Jessica va sorprendre tots els convidats. Cada detall, perfecte."</p>
+        <footer><strong>Laura & Marc</strong><span>Casament a Sitges, 2024</span></footer>
+      </blockquote>
+      <blockquote class="testi-card testi-card--highlight">
+        <p>"La gala anual va ser un èxit total. Els caldos i ceviches van ser l'estrella de la nit. Professionalitat i creativitat al màxim nivell."</p>
+        <footer><strong>Directora RRHH, Grupo Meridian</strong><span>Gala corporativa, Barcelona</span></footer>
+      </blockquote>
+      <blockquote class="testi-card">
+        <p>"L'Encocado de Pescado i la Cazuela van ser espectaculars. La decoració d'Inés va transformar el local completament. 10 estrelles."</p>
+        <footer><strong>Sofia Navarro</strong><span>Celebració privada, 2025</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="contacto__inner">
+      <div class="contacto__info">
+        <span class="section-tag" data-i18n="cont.tag">Parlem</span>
+        <h2 class="section-title" data-i18n="cont.title">Comença a crear<br />el teu event ideal</h2>
+        <p data-i18n="cont.desc">Cada gran celebració comença amb una conversa. Conta'ns la teva idea i nosaltres la farem realitat.</p>
+        <ul class="contacto__details">
+          <li>
+            <span class="contacto__icon">&#9654;</span>
+            <div><strong>Email</strong><span><a href="mailto:jessicaoficial96@gmail.com">jessicaoficial96@gmail.com</a></span></div>
+          </li>
+          <li>
+            <span class="contacto__icon">&#9654;</span>
+            <div><strong>WhatsApp</strong><span><a href="https://wa.me/34643929972" target="_blank" rel="noopener">+34 643 929 972</a></span></div>
+          </li>
+          <li>
+            <span class="contacto__icon">&#9654;</span>
+            <div><strong data-i18n="cont.loc">Localització</strong><span>Barcelona & província</span></div>
+          </li>
+        </ul>
+        <div class="cont-socials">
+          <a href="https://instagram.com/jessicavargastenorio" target="_blank" rel="noopener" class="cont-social" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://tiktok.com/@bailandoconjessica" target="_blank" rel="noopener" class="cont-social" aria-label="TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+          <a href="https://wa.me/34643929972" target="_blank" rel="noopener" class="cont-social" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-split">
+
+        <!-- MITAD COMIDA -->
+        <div class="contact-half">
+          <div class="contact-half__header">
+            <span class="contact-half__icon">🍽️</span>
+            <h3 class="contact-half__title">Gastronomia — Jessica</h3>
+            <p class="contact-half__sub">Caldos, ceviches, encocados i molt més</p>
+          </div>
+          <form class="contacto__form" id="contactFormComida">
+            <div class="form-group">
+              <label for="nombre_c">Nom i cognoms</label>
+              <input type="text" id="nombre_c" name="nombre" placeholder="Anna García" required />
+            </div>
+            <div class="form-group">
+              <label for="email_c">Correu electrònic</label>
+              <input type="email" id="email_c" name="email" placeholder="anna@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="tipo_c">Tipus d'event</label>
+              <select id="tipo_c" name="tipo" required>
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="Noces">Noces</option>
+                <option value="Event corporatiu">Event corporatiu</option>
+                <option value="Celebració privada">Celebració privada</option>
+                <option value="Aniversari">Aniversari</option>
+                <option value="Altre">Altre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fecha_c">Data aproximada</label>
+              <input type="date" id="fecha_c" name="fecha" />
+            </div>
+            <div class="form-group">
+              <label for="mensaje_c">Descriu el teu event</label>
+              <textarea id="mensaje_c" name="mensaje" rows="3" placeholder="Nombre de comensals, plats preferits, al·lèrgies..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Enviar a la Chef Jessica</button>
+            <p class="form-note">Et respondrem en menys de 24 hores.</p>
+          </form>
+        </div>
+
+        <!-- MITAD DECORACIÓN -->
+        <div class="contact-half">
+          <div class="contact-half__header">
+            <span class="contact-half__icon">🌿</span>
+            <h3 class="contact-half__title">Decoració — Inés</h3>
+            <p class="contact-half__sub">Disseny floral, il·luminació i coordinació</p>
+          </div>
+          <form class="contacto__form" id="contactFormDeco">
+            <div class="form-group">
+              <label for="nombre_d">Nom i cognoms</label>
+              <input type="text" id="nombre_d" name="nombre" placeholder="Anna García" required />
+            </div>
+            <div class="form-group">
+              <label for="email_d">Correu electrònic</label>
+              <input type="email" id="email_d" name="email" placeholder="anna@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="tipo_d">Tipus d'event</label>
+              <select id="tipo_d" name="tipo" required>
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="Noces">Noces</option>
+                <option value="Event corporatiu">Event corporatiu</option>
+                <option value="Celebració privada">Celebració privada</option>
+                <option value="Aniversari">Aniversari</option>
+                <option value="Altre">Alte</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fecha_d">Data aproximada</label>
+              <input type="date" id="fecha_d" name="fecha" />
+            </div>
+            <div class="form-group">
+              <label for="mensaje_d">Descriu el teu somni</label>
+              <textarea id="mensaje_d" name="mensaje" rows="3" placeholder="Estil, colors, lloc, nombre de convidats..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Enviar a la Decoradora Inés</button>
+            <p class="form-note">📞 També pots trucar: <strong><a href="tel:+34687141308" style="color:inherit">687 14 13 08</a></strong></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TIENDA -->
+  <section class="tienda" id="tienda">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="shop.tag">Botiga Online</span>
+      <h2 class="section-title" data-i18n="shop.title">Comanda els teus<br />plats favorits</h2>
+      <p class="section-sub" data-i18n="shop.sub">Recull a Barcelona o entrega a domicili. Mínim 24h d'antelació.</p>
+    </div>
+    <div class="tienda__grid">
+
+      <div class="tienda-card" data-product="Caldo de Bola Grande" data-price="12">
+        <div class="tienda-card__img" id="img_tienda1" style="background-image:url('https://source.unsplash.com/600x400/?ecuadorian,soup')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p1" id="txt_tienda1_nom">Caldo de Bola Grande</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p1d">Ració per a 2 persones. Bola de verd farcida en brou intens.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price" id="txt_tienda1_preu">12€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tienda-card" data-product="Cazuela de Marisc" data-price="14">
+        <div class="tienda-card__img" id="img_tienda2" style="background-image:url('https://source.unsplash.com/600x400/?seafood,stew')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p2" id="txt_tienda2_nom">Cazuela de Marisc</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p2d">Guisat cremós de marisc i peix amb maní i plàtan.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price" id="txt_tienda2_preu">14€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tienda-card" data-product="Ceviches mixtos per a 2" data-price="16">
+        <div class="tienda-card__img" id="img_tienda3" style="background-image:url('https://source.unsplash.com/600x400/?ceviche,seafood')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p3" id="txt_tienda3_nom">Ceviches mixtos per a 2</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p3d">Assortiment de ceviches: gambes, musclos i peix blanc.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price" id="txt_tienda3_preu">16€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tienda-card" data-product="Encocado de Pescado" data-price="13">
+        <div class="tienda-card__img" id="img_tienda4" style="background-image:url('https://source.unsplash.com/600x400/?fish,coconut,sauce')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p4" id="txt_tienda4_nom">Encocado de Pescado</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p4d">Peix fresc en salsa cremosa de coco i espècies tropicals.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price" id="txt_tienda4_preu">13€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tienda-card" data-product="Bollos 6 unitats" data-price="10">
+        <div class="tienda-card__img" id="img_tienda5" style="background-image:url('https://source.unsplash.com/600x400/?corn,tamales')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p5" id="txt_tienda5_nom">Bollos (6 unitats)</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p5d">Pastissos de blat de moro farcits, embolcallats en fulla de plàtan.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price" id="txt_tienda5_preu">10€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tienda-card" data-product="Tapado ració" data-price="13">
+        <div class="tienda-card__img" id="img_tienda6" style="background-image:url('https://source.unsplash.com/600x400/?tropical,stew')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p6" id="txt_tienda6_nom">Tapado ració</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p6d">Guisat tropical de plàtan, marisc i coco. La costa en un bol.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price">13€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tienda-card" data-product="Sopa Marinera Grande" data-price="11">
+        <div class="tienda-card__img" id="img_tienda7" style="background-image:url('https://source.unsplash.com/600x400/?seafood,soup')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p7" id="txt_tienda7_nom">Sopa Marinera Grande</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p7d">Ració generosa amb gambes, musclos i calamar especiats.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price" id="txt_tienda6_preu">13€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tienda-card" data-product="Guyita amb patacones" data-price="12">
+        <div class="tienda-card__img" id="img_tienda8" style="background-image:url('https://source.unsplash.com/600x400/?fried,fish,plantain')"></div>
+        <div class="tienda-card__body">
+          <h4 class="tienda-card__name" data-i18n="shop.p8" id="txt_tienda8_nom">Guatita amb patacones</h4>
+          <p class="tienda-card__desc" data-i18n="shop.p8d">Peix fregit cruixent amb patacones i salsa criolla casolana.</p>
+          <div class="tienda-card__foot">
+            <span class="tienda-card__price" id="txt_tienda7_preu">11€</span>
+            <button class="btn-add" data-i18n="shop.add">Afegir</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">ÉLITE EVENTOS</span>
+        <p data-i18n="foot.desc">Gastronomia equatoriana d'autor i decoració exclusiva per a esdeveniments inoblidables a Barcelona.</p>
+        <p class="footer__chef">Chef: <strong>Jessica Vargas Tenorio</strong></p>
+        <div class="footer__social">
+          <a href="https://instagram.com/jessicavargastenorio" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://tiktok.com/@bailandoconjessica" target="_blank" rel="noopener" class="footer__social-link" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+          <a href="https://wa.me/34643929972" target="_blank" rel="noopener" class="footer__social-link" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <h5 data-i18n="foot.srv">Serveis</h5>
+        <ul>
+          <li><a href="#servicios" data-i18n="foot.catering">Catering Equatorià</a></li>
+          <li><a href="#servicios" data-i18n="foot.deco">Decoració & Flors</a></li>
+          <li><a href="#carta"     data-i18n="foot.menu">Carta de plats</a></li>
+          <li><a href="#packs"     data-i18n="foot.packs">Packs Evento</a></li>
+          <li><a href="#tienda"    data-i18n="foot.shop">Botiga Online</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h5 data-i18n="foot.co">Empresa</h5>
+        <ul>
+          <li><a href="#equip"     data-i18n="foot.team">El nostre equip</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#proceso"   data-i18n="foot.proc">Com treballem</a></li>
+          <li><a href="#contacto"  data-i18n="foot.cont">Contacte</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 Élite Eventos — Jessica Vargas Tenorio. <span data-i18n="foot.rights">Tots els drets reservats.</span></p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Tancar">&#10005;</button>
+    <button class="lightbox__prev"  id="lightboxPrev"  aria-label="Anterior">&#8249;</button>
+    <button class="lightbox__next"  id="lightboxNext"  aria-label="Següent">&#8250;</button>
+    <div class="lightbox__img" id="lightboxImg"></div>
+    <div class="lightbox__caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrito">
+    <div class="cart-drawer__head">
+      <h3 data-i18n="cart.title">La teva comanda</h3>
+      <button class="cart-drawer__close" id="cartClose">&#10005;</button>
+    </div>
+    <div class="cart-drawer__items" id="cartItems">
+      <p class="cart-empty" data-i18n="cart.empty">El carret és buit</p>
+    </div>
+    <div class="cart-drawer__foot">
+      <div class="cart-total-row">
+        <span data-i18n="cart.total">Total</span>
+        <span id="cartTotal" class="cart-total-num">0€</span>
+      </div>
+      <a id="cartWA" href="#" class="btn btn--wa btn--full" target="_blank" rel="noopener" data-i18n="cart.order">
+        Fer pedido per WhatsApp
+      </a>
+      <p class="cart-note" data-i18n="cart.note">T'avisarem per confirmar la comanda</p>
+    </div>
+  </aside>
+
+  <!-- WHATSAPP FLOTANT -->
+  <a href="https://wa.me/34643929972?text=Hola%20Jessica!%20M%27agradaria%20informaci%C3%B3%20sobre%20els%20vostres%20serveis."
+     class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Tornar a dalt">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init('c2Xmv8p2SKCrFZ5aI');
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const note = this.querySelector('.form-note');
+      const form = this;
+      btn.textContent = 'Enviant...';
+      btn.disabled = true;
+
+      const params = {
+        name:    document.getElementById('nombre').value,
+        email:   document.getElementById('email').value,
+        title:   document.getElementById('tipo').value,
+        time:    document.getElementById('fecha').value,
+        message: document.getElementById('mensaje').value
+      };
+
+      emailjs.send('service_kvy1ouo', 'template_4srw1le', params)
+        .then(function() {
+          btn.textContent = '✓ Sol·licitud enviada!';
+          btn.style.background = '#4caf6e';
+          note.textContent = 'Gràcies! Et respondrem en menys de 24 hores.';
+          form.reset();
+        }, function(err) {
+          console.error('EmailJS error:', JSON.stringify(err));
+          btn.textContent = 'Error, torna-ho a intentar';
+          btn.style.background = '#e05c5c';
+          btn.disabled = false;
+        });
+    });
+  </script>
+
+  <!-- Firebase: carga textos, precios e imágenes en tiempo real -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyArhr2hQK0HRbl1eoXPD-tI7u42KTlnavE",
+      authDomain: "elite-eventos-eb5b9.firebaseapp.com",
+      projectId: "elite-eventos-eb5b9",
+      storageBucket: "elite-eventos-eb5b9.firebasestorage.app",
+      messagingSenderId: "947597130460",
+      appId: "1:947597130460:web:2fba42bc261c30c5bc9219"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    function applyData(data) {
+      Object.keys(data).forEach(key => {
+        const val = data[key];
+        if (!val) return;
+        const el = document.getElementById(key);
+        if (!el) return;
+        if (key.startsWith('img_')) {
+          el.style.backgroundImage = `url('${val}')`;
+        } else if (key.startsWith('txt_')) {
+          el.textContent = val;
+          // Si es precio tienda, actualizar también data-price del padre
+          if (key.includes('_preu')) {
+            const card = el.closest('[data-price]');
+            if (card) card.dataset.price = val.replace('€','');
+          }
+        }
+      });
+    }
+
+    // Imágenes
+    onSnapshot(doc(db, 'siteContent', 'images'), snap => {
+      if (snap.exists()) applyData(snap.data());
+    });
+
+    // Textos y precios
+    onSnapshot(doc(db, 'siteContent', 'texts'), snap => {
+      if (snap.exists()) applyData(snap.data());
+    });
+  </script>
+  <style>
+    .contact-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .contact-split { grid-template-columns: 1fr; }
+    }
+    .contact-half {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 12px;
+      padding: 1.8rem;
+    }
+    .contact-half__header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+    }
+    .contact-half__icon { font-size: 2rem; display: block; margin-bottom: .4rem; }
+    .contact-half__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #d4af37;
+      margin: 0 0 .3rem;
+    }
+    .contact-half__sub { font-size: .82rem; opacity: .6; margin: 0; }
+  </style>
+</body>
+</html>
